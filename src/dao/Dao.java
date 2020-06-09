@@ -272,6 +272,29 @@ public class Dao {
         return -1;
     }
 
+    /**
+     * @method
+     * @date: 2020/6/9 11:16 下午
+     * @Param: null
+     * @return
+     * @description 删除列车
+     */
+    public static boolean deleteTrain(int id){
+        if (id != 0){
+            sql = "DELETE FROM train WHERE t_no = " + id;
+        } else {
+            return false;
+        }
+        try {
+            statement = connection.createStatement();
+            flag = statement.execute(sql);
+            return flag;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     public static boolean trainTime(Train train){
         try {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

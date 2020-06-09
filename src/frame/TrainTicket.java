@@ -12,7 +12,7 @@ import java.util.List;
 
 public class TrainTicket extends JFrame implements ActionListener {
 
-    JButton Add, ViewAll, Search, SellTicket,ReturnTicket, Close;
+    JButton Add, ViewAll, Search, SellTicket,ReturnTicket, Delete;
 
     /**
      * @method
@@ -21,6 +21,7 @@ public class TrainTicket extends JFrame implements ActionListener {
      * @return
      * @description 车票系统主界面
      */
+
     public TrainTicket(){
         setBounds(400, 100, 700, 500);
         JPanel panel = new JPanel();
@@ -51,9 +52,9 @@ public class TrainTicket extends JFrame implements ActionListener {
         panel.add(ReturnTicket);
         ReturnTicket.setBounds(450,200,80,50);
 
-        Close = new JButton("退出");
-        panel.add(Close);
-        Close.setBounds(550,200,80,50);
+        Delete = new JButton("删除");
+        panel.add(Delete);
+        Delete.setBounds(550,200,80,50);
 
 
         Add.addActionListener(this);
@@ -61,7 +62,7 @@ public class TrainTicket extends JFrame implements ActionListener {
         Search.addActionListener(this);
         SellTicket.addActionListener(this);
         ReturnTicket.addActionListener(this);
-        Close.addActionListener(this);
+        Delete.addActionListener(this);
         setVisible(true);
     }
 
@@ -83,14 +84,12 @@ public class TrainTicket extends JFrame implements ActionListener {
         if (e.getSource() == ReturnTicket){
             TicketReturn ticketReturn = new TicketReturn();
         }
-        if (e.getSource() == Close){
-            System.exit(0);
+        if (e.getSource() == Delete){
+            TicketDelete ticketDelete = new TicketDelete();
         }
     }
 
     public static void main(String[] args) throws ParseException {
         TrainTicket trainTicket = new TrainTicket();
     }
-
-
 }
